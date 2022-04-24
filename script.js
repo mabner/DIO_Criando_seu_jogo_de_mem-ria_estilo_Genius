@@ -1,5 +1,5 @@
 let order = [];
-let clickOrder = [];
+let clickedOrder = [];
 let score = 0;
 
 /*	0 - green
@@ -36,4 +36,19 @@ let lightColour = (element, number) => {
 	setTimeout(() => {
 		element.classList.remove('selected'); // removes the opacity class from the element
 	}, number);
+};
+
+let checkOrder = () => {
+	// checks if user clicked the right order
+	for (let i in clickedOrder) {
+		if (clickedOrder[i] != order[i]) {
+			lose();
+			break;
+		}
+	}
+
+	if (clickedOrder.length == order.length) {
+		alert(`Score: ${score}\nYou did it! Starting next level...`);
+		nextLevel();
+	}
 };
