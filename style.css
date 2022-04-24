@@ -1,10 +1,37 @@
 body {
 	margin: 0;
-	background-color: rgb(208, 255, 239);
+	background-color: #464646;
+	color: #fefefe;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	font-size: 1.2em;
+	font-family: 'Righteous', cursive;
+}
+
+.board {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+}
+
+.game-title {
+	margin: auto;
+	width: 692px;
+	text-align: center;
+	background: rgb(99, 226, 12);
+	background: radial-gradient(
+		circle,
+		rgba(99, 226, 12, 1) 0%,
+		rgba(255, 0, 0, 1) 35%,
+		rgba(255, 246, 0, 1) 70%,
+		rgba(0, 138, 255, 1) 100%
+	);
+	background-clip: text;
+	color: transparent;
 }
 
 .main-game {
-	height: 100vh;
+	height: 80vh;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
@@ -17,37 +44,37 @@ body {
 		'a-green a-red'
 		'a-yellow a-blue';
 	gap: 10px;
-	border: 1px solid #fff;
-	background-color: #fff;
+	border: 1px solid #464646;
+	background-color: #464646;
 	border-radius: 100%; /*makes it round*/
-	width: 700px;
-	height: 700px;
+	width: 600px;
+	height: 600px;
 }
 
 .green {
 	grid-area: a-green;
-	background-color: green;
-	border-top-left-radius: 100%;	
+	background-color: #63e20c;
+	border-top-left-radius: 100%;
 }
 
 .red {
 	grid-area: a-red;
-	background-color: red;
+	background-color: #ff0000;
 	border-top-right-radius: 100%;
 }
 
 .yellow {
 	grid-area: a-yellow;
-	background-color: yellow;
+	background-color: #fff600;
 	border-bottom-left-radius: 100%;
 }
 
 .blue {
 	grid-area: a-blue; /*uses the area name set in grid-template-areas*/
-	background-color: blue;
+	background-color: #008aff;
 	border-bottom-right-radius: 100%;
 }
 
 .selected {
-	opacity: 0.8;
+	opacity: 0.6;
 }

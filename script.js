@@ -12,6 +12,7 @@ const green = document.querySelector('.green');
 const red = document.querySelector('.red');
 const yellow = document.querySelector('.yellow');
 const blue = document.querySelector('.blue');
+const scoreboard = document.querySelector('.scoreboard');
 
 let shuffleOrder = () => {
 	let colourOrder = Math.floor(Math.random() * 4);
@@ -48,6 +49,7 @@ let checkOrder = () => {
 	}
 
 	if (clickedOrder.length == order.length) {
+		scoreboard.innerHTML = score;
 		alert(`Score: ${score}.\nYou did it! Starting next level...`);
 		nextLevel();
 	}
@@ -85,9 +87,11 @@ let nextLevel = () => {
 
 //game over
 let gameOver = () => {
+	scoreboard.innerHTML = score;
 	alert(`Score: ${score}.\nGame Over!\nClick OK to try again.`);
 	order = [];
 	clickedOrder = [];
+	scoreboard.innerHTML = '0';
 	playGame();
 };
 
