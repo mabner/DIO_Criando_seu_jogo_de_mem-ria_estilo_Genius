@@ -14,12 +14,36 @@ body {
 .genius {
 	display: grid;
 	grid-template-areas: /*colour positions*/
-		'green red'
-		'yellow blue';
+		'a-green a-red'
+		'a-yellow a-blue';
 	gap: 10px;
 	border: 1px solid #fff;
 	background-color: #fff;
 	border-radius: 100%; /*makes it round*/
 	width: 700px;
 	height: 700px;
+}
+
+.green {
+	grid-area: a-green;
+	background-color: green;
+	border-top-left-radius: 100%;	
+}
+
+.red {
+	grid-area: a-red;
+	background-color: red;
+	border-top-right-radius: 100%;
+}
+
+.yellow {
+	grid-area: a-yellow;
+	background-color: yellow;
+	border-bottom-left-radius: 100%;
+}
+
+.blue {
+	grid-area: a-blue; /*uses the area name set in grid-template-areas*/
+	background-color: blue;
+	border-bottom-right-radius: 100%;
 }
