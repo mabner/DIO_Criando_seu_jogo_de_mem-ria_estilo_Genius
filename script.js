@@ -21,6 +21,19 @@ let shuffleOrder = () => {
 	clickOrder = [];
 
 	for (let i in order) {
-		let elementColour;
+		let elementColour = createColourElement(order[i]); // stores the order of the colour been shown randomly
+		lightColour(elementColour, Number(i) + 1);
 	}
+};
+
+let lightColour = (element, number) => {
+	number = number * 500;
+
+	setTimeout(() => {
+		element.classList.add('selected'); // adds the opacity class to the element
+	}, number - 250);
+
+	setTimeout(() => {
+		element.classList.remove('selected'); // removes the opacity class from the element
+	}, number);
 };
