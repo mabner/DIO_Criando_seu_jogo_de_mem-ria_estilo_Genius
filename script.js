@@ -53,6 +53,7 @@ let checkOrder = () => {
 	}
 };
 
+// check user clicks
 let click = (colour) => {
 	clickedOrder[clickedOrder.length] = colour;
 	createColourElement(colour).classList.add('selected');
@@ -63,3 +64,17 @@ let click = (colour) => {
 
 	checkOrder();
 };
+
+// returns the colour
+let createColourElement = (colour) => {
+	if (colour == 0) {
+		return green;
+	} else if (colour == 1) {
+		return red;
+	} else if (colour == 2) {
+		return yellow;
+	} else if (colour == 3) {
+		return blue;
+	}
+};
+
