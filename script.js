@@ -8,17 +8,17 @@ let score = 0;
 	3 - blue
 */
 
-const green = document.querySelector('blue');
-const red = document.querySelector('red');
-const yellow = document.querySelector('yellow');
-const blue = documento.querySelector('blue');
+const green = document.querySelector('.green');
+const red = document.querySelector('.red');
+const yellow = document.querySelector('.yellow');
+const blue = document.querySelector('.blue');
 
 let shuffleOrder = () => {
 	let colourOrder = Math.floor(Math.random() * 4);
 
 	order[order.length] = colourOrder; // assigns the random number to the next random number
 
-	clickOrder = [];
+	clickedOrder = [];
 
 	for (let i in order) {
 		let elementColour = createColourElement(order[i]); // stores the order of the colour been shown randomly
@@ -42,13 +42,13 @@ let checkOrder = () => {
 	// checks if user clicked the right order
 	for (let i in clickedOrder) {
 		if (clickedOrder[i] != order[i]) {
-			lose();
+			gameOver();
 			break;
 		}
 	}
 
 	if (clickedOrder.length == order.length) {
-		alert(`Score: ${score}\nYou did it! Starting next level...`);
+		alert(`Score: ${score}.\nYou did it! Starting next level...`);
 		nextLevel();
 	}
 };
@@ -60,9 +60,8 @@ let click = (colour) => {
 
 	setTimeout(() => {
 		createColourElement(colour).classList.remove('selected');
-	});
-
-	checkOrder();
+		checkOrder();
+	}, 250);
 };
 
 // returns the colour
@@ -78,3 +77,30 @@ let createColourElement = (colour) => {
 	}
 };
 
+// next level
+let nextLevel = () => {
+	score++;
+	shuffleOrder();
+};
+
+//game over
+let gameOver = () => {
+	alert(`Score: ${score}.\nGame Over!\nClick OK to try again.`);
+	order = [];
+	clickedOrder = [];
+	playGame();
+};
+
+// new game
+let playGame = () => {
+	alert(`Welcome to the GeniusColour Memory Game! Starting new game...`);
+	score = 0;
+	nextLevel();
+};
+
+green.addEventListener('click', click(0));
+red.addEventListener('click', click(1));
+yellow.addEventListener('click', click(2));
+blue.addEventListener('click', click(3));
+
+playGame();
